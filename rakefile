@@ -1,0 +1,17 @@
+# frozen_string_literal: true
+require_relative './lib/image_scraper'
+require_relative './lib/exception'
+
+namespace :image_scraper do
+  desc 'This will load images from the web url.'
+  task :scrap, [:url] do |t, args|
+    image_scraper = ImageScraper.new(args[:url])
+
+    if !image_scraper.is_valid_url?
+      pp Exception.new(image_scraper).error_message
+    else
+      $stdout.print "Images from #{args[:url]}\n"
+      pp image_scraper.scrap_the_images
+    end
+  end
+end
