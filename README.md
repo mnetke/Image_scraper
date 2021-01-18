@@ -16,7 +16,7 @@ $ bundle install
 ```
 4. run rake task with valid web url.
 ```
-$ rake rake image_scraper:scrap[param]
+$ rake image_scraper:scrap[param]
 ```
 eg.
 ```
